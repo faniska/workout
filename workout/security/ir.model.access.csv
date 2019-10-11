@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_workout_user_muscle,access_workout_user_muscle,model_workout_muscle,workout.workout_user,1,0,0,0
+access_workout_user_muscle_group,access_workout_user_muscle_group,model_workout_muscle_group,workout.workout_user,1,0,0,0
+access_workout_user_exercise,access_workout_user_exercise,model_workout_exercise,workout.workout_user,1,0,0,0
+
+access_workout_manager_muscle,access_workout_manager_muscle,model_workout_muscle,workout.workout_manager,1,1,1,1
+access_workout_manager_muscle_group,access_workout_manager_muscle_group,model_workout_muscle_group,workout.workout_manager,1,1,1,1
+access_workout_manager_exercise,access_workout_manager_exercise,model_workout_exercise,workout.workout_manager,1,1,1,1

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="workout_exercise_form" model="ir.ui.view">
+            <field name="name">workout.exercise.form</field>
+            <field name="model">workout.exercise</field>
+            <field name="arch" type="xml">
+                <form string="Exercise">
+                    <group>
+                        <field name="name"/>
+                        <field name="muscle_ids" widget="many2many_tags"/>
+                        <field name="additional_muscle_ids" nolabel="True" widget="many2many_tags"/>
+                        <field name="similar_exercise_ids" nolabel="True" widget="many2many_tags"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="workout_exercise_tree" model="ir.ui.view">
+            <field name="name">workout.exercise.tree</field>
+            <field name="model">workout.exercise</field>
+            <field name="arch" type="xml">
+                <tree string="Exercises">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_workout_exercises" model="ir.actions.act_window">
+            <field name="name">Exercises</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">workout.exercise</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Exercises"
+                  id="menu_workout_exercises"
+                  action="action_workout_exercises"
+                  parent="menu_workout_settings"
+                  sequence="10" groups="workout.workout_manager"/>
+
+    </data>
+</odoo>

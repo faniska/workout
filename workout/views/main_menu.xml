@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem
+                id="menu_workout_root"
+                name="Workout"
+                sequence="50"/>
+
+        <menuitem
+                id="menu_workout_settings"
+                name="Settings"
+                parent="menu_workout_root"
+                sequence="100"/>
+    </data>
+</odoo>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="workout_muscle_form" model="ir.ui.view">
+            <field name="name">workout.muscle.form</field>
+            <field name="model">workout.muscle</field>
+            <field name="arch" type="xml">
+                <form string="Muscle">
+                    <group>
+                        <field name="name"/>
+                        <field name="group_id"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="workout_muscle_tree" model="ir.ui.view">
+            <field name="name">workout.muscle.tree</field>
+            <field name="model">workout.muscle</field>
+            <field name="arch" type="xml">
+                <tree string="Muscles">
+                    <field name="name"/>
+                    <field name="group_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_workout_muscles" model="ir.actions.act_window">
+            <field name="name">Muscles</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">workout.muscle</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Muscles"
+                  id="menu_workout_muscles"
+                  action="action_workout_muscles"
+                  parent="menu_workout_settings"
+                  sequence="10" groups="workout.workout_manager"/>
+
+        <record id="workout_muscle_group_form" model="ir.ui.view">
+            <field name="name">workout.muscle.group.form</field>
+            <field name="model">workout.muscle.group</field>
+            <field name="arch" type="xml">
+                <form string="Muscle">
+                    <group>
+                        <field name="name"/>
+                        <field name="muscle_ids">
+                            <tree editbale="top">
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="workout_muscle_group_tree" model="ir.ui.view">
+            <field name="name">workout.muscle.group.tree</field>
+            <field name="model">workout.muscle.group</field>
+            <field name="arch" type="xml">
+                <tree string="Muscle Groups">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_workout_muscle_groups" model="ir.actions.act_window">
+            <field name="name">Muscle Groups</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">workout.muscle.group</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="Muscle Groups"
+                  id="menu_workout_muscle_groups"
+                  action="action_workout_muscle_groups"
+                  parent="menu_workout_settings"
+                  sequence="10" groups="workout.workout_manager"/>
+
+    </data>
+</odoo>

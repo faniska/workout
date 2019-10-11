@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.module.category" id="module_category_workout">
+            <field name="name">Workout</field>
+            <field name="description">Workout Module</field>
+            <field name="sequence">100</field>
+        </record>
+
+        <record id="workout_user" model="res.groups">
+            <field name="name">Workout User</field>
+            <field name="category_id" ref="module_category_workout"/>
+        </record>
+
+        <record id="workout_manager" model="res.groups">
+            <field name="name">Workout Manager</field>
+            <field name="category_id" ref="module_category_workout"/>
+            <field name="implied_ids" eval="[(4, ref('workout_user'))]"/>
+        </record>
+    </data>
+</odoo>
