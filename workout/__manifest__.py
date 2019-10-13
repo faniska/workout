@@ -15,6 +15,7 @@
         'views/main_menu.xml',
         'views/muscle.xml',
         'views/exercise.xml',
+        'views/plan.xml',
     ],
     'demo': [],
     'test': [],
