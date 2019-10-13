@@ -46,7 +46,7 @@
                     <group>
                         <field name="name"/>
                         <field name="muscle_ids">
-                            <tree editbale="top">
+                            <tree editable="top">
                                 <field name="name"/>
                             </tree>
                         </field>
