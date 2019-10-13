@@ -7,6 +7,12 @@
                 sequence="50"/>
 
         <menuitem
+                id="menu_workout_main"
+                name="Workout"
+                parent="menu_workout_root"
+                sequence="50"/>
+
+        <menuitem
                 id="menu_workout_settings"
                 name="Settings"
                 parent="menu_workout_root"

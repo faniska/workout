@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 
 
 class Plan(models.Model):
@@ -43,3 +43,20 @@ class PlanExercise(models.Model):
 
     reps_number_min = fields.Integer('Reps (Min)')
     reps_number_max = fields.Integer('Reps (Max)')
+
+    def action_add_log(self):
+        self.ensure_one()
+        view = self.env.ref('workout.workout_log_form')
+        return {
+            'name': _('Workout Log'),
+            'type': 'ir.actions.act_window',
+            'view_type': 'form',
+            'view_mode': 'form',
+            'res_model': 'workout.log',
+            'views': [(view.id, 'form')],
+            'view_id': view.id,
+            'target': 'new',
+            'context': {
+                'default_exercise_id': self.exercise_id.id
+            }
+        }

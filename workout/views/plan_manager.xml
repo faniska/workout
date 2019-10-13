@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="workout_plan_form_manager" model="ir.ui.view">
+            <field name="name">workout.plan.form.manager</field>
+            <field name="model">workout.plan</field>
+            <field name="groups_id" eval="[(6, 0,  [ref('workout_manager')])]"/>
+            <field name="arch" type="xml">
+                <form string="Workout Plan">
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <group>
+                        <field name="days">
+                            <tree>
+                                <field name="name"/>
+                                <field name="day"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <field name="day"/>
+                                </group>
+                                <notebook>
+                                    <group string="Exercises">
+                                        <field name="exercise_ids" nolabel="True">
+                                            <tree editable="bottom">
+                                                <field name="sequence" widget="handle"/>
+                                                <field name="exercise_id"/>
+                                                <field name="sets_number_min"/>
+                                                <field name="sets_number_max"/>
+                                                <field name="reps_number_min"/>
+                                                <field name="reps_number_max"/>
+                                            </tree>
+                                        </field>
+                                    </group>
+                                </notebook>
+                            </form>
+                        </field>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="workout_plan_tree_manager" model="ir.ui.view">
+            <field name="name">workout.plan.tree.manager</field>
+            <field name="model">workout.plan</field>
+            <field name="groups_id" eval="[(6, 0,  [ref('workout_manager')])]"/>
+            <field name="arch" type="xml">
+                <tree string="Workout Plans">
+                    <field name="name"/>
+                    <field name="days"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_workout_plans_manager" model="ir.actions.act_window">
+            <field name="name">Plans</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">workout.plan</field>
+            <field name="view_mode">tree,form</field>
+            <field name="groups_id" eval="[(6, 0,  [ref('workout_manager')])]"/>
+        </record>
+
+        <record id="action_workout_plans_user_tree" model="ir.actions.act_window.view">
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="workout_plan_tree_manager"/>
+            <field name="act_window_id" ref="action_workout_plans_manager"/>
+            <field name="sequence">1</field>
+        </record>
+
+        <record id="action_workout_plans_user_tree" model="ir.actions.act_window.view">
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="workout_plan_form_manager"/>
+            <field name="act_window_id" ref="action_workout_plans_manager"/>
+            <field name="sequence">2</field>
+        </record>
+
+        <menuitem name="Plans"
+                  id="menu_workout_plans"
+                  action="action_workout_plans_manager"
+                  parent="menu_workout_settings"
+                  sequence="10" groups="workout.workout_manager"/>
+
+    </data>
+</odoo>
